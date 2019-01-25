@@ -11,5 +11,6 @@ std::vector<std::string> split (std::string str){
                 ret.push_back(curr_part);
             curr_part = "";
         }
+        else curr_part += str[i];
     }
 }
