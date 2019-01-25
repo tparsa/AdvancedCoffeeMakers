@@ -1,5 +1,12 @@
 #include "node.hpp"
 
+Node::Node(std::vector<Node*> _children, Node* _parent,  bool _optional){
+    parent = _parent;
+    optional = _optional;
+    for (Node* node : _children)
+        children.insert(node);
+}
+
 std::map<Node*, bool> Node::fill_mark_for_validation(std::vector<Node*> available_children){
     std::map<Node*, bool> mark;
     for (Node* node : available_children)
