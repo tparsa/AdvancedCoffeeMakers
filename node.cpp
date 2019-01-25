@@ -1,6 +1,7 @@
 #include "node.hpp"
 
-Node::Node(std::vector<Node*> _children, Node* _parent,  bool _optional){
+Node::Node(std::vector<Node*> _children, std::string _name, Node* _parent,  bool _optional){
+    name = _name;
     parent = _parent;
     optional = _optional;
     for (Node* node : _children)

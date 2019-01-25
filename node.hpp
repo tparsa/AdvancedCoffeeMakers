@@ -17,7 +17,7 @@ class Node {
         std::map<Node*, bool> fill_mark_for_validation(std::vector<Node*> available_children);
         bool check_all_existence(std::vector<Node*> available_children);
     public:
-        Node(std::vector<Node*> _children, Node* _parent = NULL,  bool _optional=0);
+        Node(std::vector<Node*> _children, std::string _name, Node* _parent = NULL,  bool _optional=0);
         bool get_optional() { return optional; }
         virtual bool validation(std::vector<Node*> available_children) = 0;
 };
