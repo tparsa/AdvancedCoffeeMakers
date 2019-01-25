@@ -1,3 +1,6 @@
+#ifndef __NODEHPP__
+#define __NODEHPP__
+
 #include <set>
 #include <vector>
 #include <map>
@@ -32,3 +35,5 @@ class Alternative: public Node{
     public:
         bool validation(std::vector<Node*> available_children);
 };
+
+#endif
