@@ -13,5 +13,7 @@ std::vector<std::string> split (std::string str){
         }
         else curr_part += str[i];
     }
+    if((int)curr_part.size() != 0)
+        ret.push_back(curr_part);
     return ret;
 }
