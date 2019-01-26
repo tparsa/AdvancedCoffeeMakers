@@ -20,10 +20,8 @@ std::vector<std::string> split (std::string str){
         if(!isalpha(str[i]) && str[i] != '?'){
             if((int)curr_part.size() != 0)
                 ret.push_back(curr_part);
-            if((int)str[i] != SPACE && int(str[i]) != TAB){
-                curr_part = str[i];
-                ret.push_back(curr_part);
-            }
+            curr_part = str[i];
+            ret.push_back(curr_part);
             curr_part = "";
         }
         else curr_part += str[i];
