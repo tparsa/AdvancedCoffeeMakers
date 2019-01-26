@@ -17,6 +17,7 @@ void ACM::add_sub_features (std::string feature_name, std::string feature_parent
     if(type == normalNode) feature_node = new Normal(children, feature_name, find_node_with_name(feature_parent_name), optional);
     else if(type == orNode) feature_node = new Or(children, feature_name, find_node_with_name(feature_parent_name), optional);
     else if(type == xorNode) feature_node = new Alternative(children, feature_name, find_node_with_name(feature_parent_name), optional);
+    nodes.push_back(feature_node);
 }
 
 std::map<std::string, int> ACM::make_definition_index_map(std::vector<std::vector<std::string>> definitions){
