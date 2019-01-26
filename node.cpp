@@ -11,7 +11,8 @@ Node::Node(std::vector<Node*> _children, std::string _name, Node* _parent,  bool
 std::map<Node*, bool> Node::fill_mark_for_validation(std::vector<Node*> available_children){
     std::map<Node*, bool> mark;
     for (Node* node : available_children)
-        mark[node] = true;
+        if(exists_in_children(node))
+            mark[node] = true;
     return mark;
 }
 
@@ -26,8 +27,8 @@ bool Node::check_all_existence(std::vector<Node*> available_children)
 bool Normal::validation(std::vector<Node*> available_children){
     std::map<Node*, bool> mark;
     mark = fill_mark_for_validation(available_children);
-    if(!check_all_existence(available_children))
-        return false;
+   // if(!check_all_existence(available_children))
+    //    return false;
 
     for (Node* node : children)
         if(node->get_optional() && mark[node] == false)
@@ -38,14 +39,16 @@ bool Normal::validation(std::vector<Node*> available_children){
 bool Or::validation(std::vector<Node*> available_children){
     std::map<Node*, bool> mark;
     mark = fill_mark_for_validation(available_children);
-    if(!check_all_existence(available_children))
-        return false;
+   // if(!check_all_existence(available_children))
+     //   return false;
 
-    return ((int)available_children.size() > 0);
+    return ((int)mark.size() > 0);
 }
 
 bool Alternative::validation(std::vector<Node*> available_children){
-    if(!check_all_existence(available_children))
-        return false;
-    return ((int)available_children.size() == 1);
+    std::map<Node*, bool> mark;
+    mark = fill_mark_for_validation(available_children);
+  //  if(!check_all_existence(available_children))
+    //    return false;
+    return ((int)mark.size() == 1);
 }
