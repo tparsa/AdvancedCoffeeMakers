@@ -3,6 +3,7 @@
 
 #include <string>
 #include <vector>
+#include <cctype>
 
 std::vector<std::string> split (std::string);
 

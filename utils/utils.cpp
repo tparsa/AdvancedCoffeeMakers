@@ -6,9 +6,13 @@ std::vector<std::string> split (std::string str){
     int str_size = (int)str.size();
     std::string curr_part = "";
     for (int i = 0; i < str_size; i++){
-        if(str[i] == ' '){
+        if(!isalpha(str[i]) && str[i] != '?'){
             if((int)curr_part.size() != 0)
                 ret.push_back(curr_part);
+            if(str[i] != ' '){
+                curr_part = str[i];
+                ret.push_back(curr_part);
+            }
             curr_part = "";
         }
         else curr_part += str[i];
