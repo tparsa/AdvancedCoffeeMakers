@@ -8,6 +8,13 @@ Node::Node(std::vector<Node*> _children, std::string _name, Node* _parent,  bool
         children.insert(node);
 }
 
+bool Node::parent_exists(std::vector<Node*> available_parents){
+    for (Node* par : available_parents)
+        if(par == parent)
+            return true;
+    return false;
+}
+
 std::map<Node*, bool> Node::fill_mark_for_validation(std::vector<Node*> available_children){
     std::map<Node*, bool> mark;
     for (Node* node : available_children)
