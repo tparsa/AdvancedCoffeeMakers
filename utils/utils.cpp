@@ -13,4 +13,5 @@ std::vector<std::string> split (std::string str){
         }
         else curr_part += str[i];
     }
+    return ret;
 }
