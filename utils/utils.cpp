@@ -9,7 +9,7 @@ std::vector<std::string> split (std::string str){
         if(!isalpha(str[i]) && str[i] != '?'){
             if((int)curr_part.size() != 0)
                 ret.push_back(curr_part);
-            if(str[i] != ' '){
+            if(str[i] != ' ' && int(str[i]) != 9){
                 curr_part = str[i];
                 ret.push_back(curr_part);
             }
