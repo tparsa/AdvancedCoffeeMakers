@@ -11,6 +11,7 @@ class Node {
         int number_of_children;
         std::set<Node*> children;
         Node* parent;
+        std::string parent_name;
         std::string name;
         bool optional;
         bool exists_in_children(Node* node){ return !(children.find(node) == children.end()); }
@@ -18,27 +19,29 @@ class Node {
         bool check_all_existence(std::vector<Node*> available_children);
     public:
         std::string get_name(){ return name; }
-        Node(std::vector<Node*> _children, std::string _name, Node* _parent = NULL,  bool _optional=0);
+        Node(std::vector<Node*> _children, std::string _name, std::string _parent_name = "",  bool _optional=0);
         bool get_optional() { return optional; }
         virtual bool validation(std::vector<Node*> available_children) = 0;
         bool parent_exists(std::vector<Node*> available_parents);
+        void set_parent(Node* par) { parent = par; }
+        std::string get_parent_name() { return parent_name; }
 };
 
 class Normal: public Node  {
     public:
-        Normal(std::vector<Node*> _children, std::string _name, Node* _parent = NULL,  bool _optional=0): Node(_children, _name, _parent, _optional) {}
+        Normal(std::vector<Node*> _children, std::string _name, std::string _parent_name = "",  bool _optional=0): Node(_children, _name, _parent_name, _optional) {}
         bool validation(std::vector<Node*> available_children);
 };
 
 class Or: public Node {
     public:
-        Or(std::vector<Node*> _children, std::string _name, Node* _parent = NULL,  bool _optional=0): Node(_children, _name, _parent, _optional) {}
+        Or(std::vector<Node*> _children, std::string _name, std::string _parent_name = "",  bool _optional=0): Node(_children, _name, _parent_name, _optional) {}
         bool validation(std::vector<Node*> available_children);
 };
 
 class Alternative: public Node{
     public:
-        Alternative(std::vector<Node*> _children, std::string _name, Node* _parent = NULL,  bool _optional=0): Node(_children, _name, _parent, _optional) {}
+        Alternative(std::vector<Node*> _children, std::string _name, std::string _parent_name = "",  bool _optional=0): Node(_children, _name, _parent_name, _optional) {}
         bool validation(std::vector<Node*> available_children);
 };
 
