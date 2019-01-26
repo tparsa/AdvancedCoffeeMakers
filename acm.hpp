@@ -17,8 +17,11 @@ class ACM {
         void dfs_make(const std::vector<std::vector<std::string>>&, const std::map<std::string, int>&, std::map<std::string, bool>&, int idx = 0, std::string parent_name = "", bool optional = false);
         std::vector<std::string> get_sub_features_name(std::vector<std::string>);
         Type get_type(std::string);
-    public:
         void make_coffee_machines(std::vector<std::vector<std::string>>);
+        void set_all_parents();
+    public:
+        ACM(std::vector<std::vector<std::string>> definitions) { make_coffee_machines(definitions); }
+        bool validate_order(std::vector<std::string>);
 };
 
 #endif
