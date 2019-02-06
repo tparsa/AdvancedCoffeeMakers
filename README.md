@@ -84,4 +84,4 @@ is valid. Print a line containing +++ (three plus sign) after each test case.
 
 ### Sample Input and Output
 ![sampleio](https://user-images.githubusercontent.com/7942685/51790117-6720c780-21a6-11e9-954b-0ea43252d1dd.jpg)
-$$\sum_{i=1}^{datasize} (real_i - estimated_i)^2$$
+$\sum_{i=1}^{datasize} (real_i - estimated_i)^2$
